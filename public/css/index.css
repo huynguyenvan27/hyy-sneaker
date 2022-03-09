@@ -175,6 +175,7 @@
 .news-block{
   margin-top:15px;
   margin-bottom: 5px;
+  display: block;
 }
 #news .news-img:hover img{
   transform: scale(1.2);

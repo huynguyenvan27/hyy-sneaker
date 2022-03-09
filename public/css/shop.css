@@ -185,6 +185,26 @@ input:checked + .btn-size {
   border: 1px solid var(--border-color);
   padding: 10px;
 }
+
+.news-detail ol li{
+  font-size: 1.6rem;
+  margin-top: 20px;
+}
+.news-detail img{
+  width: 700px;
+  margin:10px 0;
+}
+.blog-navigation>a{
+  display: flex;
+  align-items: center;
+}
+.blog-navigation i{
+  font-size: 4rem;
+}
+.blog-navigation span{
+  font-size: 1.6rem;
+  font-weight: 500;
+}
 .news-hot .news-block:not(.news-block:last-child){
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border-color);

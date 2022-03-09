@@ -26,7 +26,7 @@ body{
 ul{
   padding-left: 0;
 }
-li{
+ul li{
   list-style: none;
 }
 a{
@@ -211,7 +211,7 @@ img{
 }
 /* font-size */
 .text{
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight:400;
 }
 .text-16{
@@ -227,6 +227,9 @@ img{
   font-size: 4.8rem;
   color: var(--red-color);
   margin: 50px 0;
+}
+.heading-blog{
+  font-size: 3.6rem;
 }
 /* line-seperate */
 .line-seperate{
@@ -356,3 +359,6 @@ form small{
 .input-class.error+small{
   visibility: visible;
 }
+
+
+
