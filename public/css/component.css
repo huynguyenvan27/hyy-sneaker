@@ -1,0 +1,348 @@
+/* header */
+#header-site{
+  padding: 25px 0;
+  background-color: var(--white-color);
+  box-shadow: 1px 2px 8px rgba(0,0,0,0.1);
+  overflow: smooth;
+}
+#logo{
+  width:95px ;
+  height:55px;
+}
+.nav-icon{
+  display: none;
+} 
+.topbar{
+  background-color: var(--black-color);
+}
+.topbar p{
+  margin:0;
+  padding: 3px 0;
+  color: var(--white-color);
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.header-nav a{
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 8px;
+  text-transform: uppercase;
+}
+.header-icon>a{
+  margin:0 5px;
+  transform: translateY(0px);
+  transition: all 0.2s linear;
+}
+.header-icon>a:hover{
+  transform: translateY(-2px);
+}
+/* page navigation */
+.pagination{
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.page-link{
+  font-size: 1.6rem;
+  color: var(--black-color);
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+
+}
+.page-link:focus{
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+/* sidenav */
+
+.sidenav {
+  height: 100%;
+  max-width: 350px;
+  width: 100%;
+  background-color: var(--white-color);
+  transition: 0.5s;
+  padding: 5px 15px 15px;
+  overflow: auto;
+}
+#nav-mobile{
+  margin-left: -350px;
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+}
+.nav-mobile__link{
+  padding:8px 0;
+  font-size: 1.6rem;
+  color: var(--black-color);
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.nav-mobile__link:not(.nav-mobile__link:last-child){
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.sidenav .closebtn {
+  font-size: 3rem;
+  padding: 0 5px;
+}
+
+/* mini-cart */
+#mini-cart{
+  margin-right: -400px;
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  right: 0;
+}
+#mini-cart .product-name{
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+#mini-cart label{
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+#mini-cart .product-img{
+  display: inline-block;
+  max-width: 80px;
+  height: 80px;
+  width: 100%
+}
+#mini-cart .product-info{
+  margin-left : 10px;
+}
+.mini-cart__item{
+  border-bottom: 1px dashed var(--border-color);
+  padding: 10px 0;
+}
+.mini-cart__total{
+  margin-top: 60px;
+}
+.mini-cart__router a {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+/* seperate */
+#seperate{
+  background-image: url(../img/seperate.jpg);
+  padding-top: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-name{
+  font-size: 3.6rem;
+  color: var(--white-color);
+  font-weight: 600;
+}
+.category-name>a,.category-name>span{
+  font-size: 2.4rem;
+  color: var(--white-color);
+  font-weight: 400;
+}
+.category-name a:hover{
+  color: var(--red-color);
+}
+.seperate-block{
+  top: 25%;
+  right: 50%;
+  transform: translateX(50%);
+}
+/* newsletter */
+#newsletter{
+  background-color: #f3f3f3;
+  font-size: 1.4rem;
+  padding: 10px 0;
+}
+.newsletter-input{
+  position: relative;
+}
+.newsletter-input input{
+  height: 47px;
+  padding: 10px;
+  flex: 1;
+  border: none;
+}
+.newsletter-input input:focus-visible{
+  outline: unset;
+}
+#newsletter .btn--primary{
+  height: 47px;
+  position: absolute;
+  right: 8px;
+}
+
+/* footer */
+footer{
+  background-color: var(--primary-color);
+  padding: 60px 0;
+}
+footer p,footer a{
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+footer h1{
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+footer #logo{
+  margin-bottom: 20px;
+}
+footer .store{
+  margin-bottom: 20px;
+}
+
+
+/* icons-link */
+.icon-link i{
+  font-size: 2rem;
+  color: var(--white-color);
+}
+.icon-link {
+  width: 30px;
+  height: 30px;
+  background-color: #666;
+  line-height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  margin: 5px;
+  box-sizing: content-box;
+}
+.icon-link.facebook {
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
+}
+.icon-link.youtube {
+  background-color: #df1c31;
+  border: 1px solid #df1c31;
+
+}
+.icon-link.twitter {
+  background-color: #00aced;
+  border: 1px solid #00aced;
+}
+.icon-link.pinterest {
+  background-color: #b81621;
+  border: 1px solid #b81621;
+}
+
+.icon-link:hover{
+  background-color: var(--white-color);
+}
+.icon-link.facebook:hover .fa-facebook-f {
+  color: #3b5998;
+  transition: color 150ms ease-in-out;
+}
+.icon-link.youtube:hover .fa-youtube {
+  color: #df1c31;
+  transition: color 150ms ease-in-out;
+}
+.icon-link.pinterest:hover .fa-pinterest {
+  color: #b81621;
+  transition: color 150ms ease-in-out;
+}
+.icon-link.twitter:hover .fa-twitter {
+  color: #00aced;
+  transition: color 150ms ease-in-out;
+}
+/* over_lay */
+#overlay{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+  z-index: 6;
+}
+
+/* modal-box */
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 7; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+.modal input{
+  padding: 8px 10px;
+  font-size: 1.6rem;
+  width: 100%;
+  margin-bottom: 20px;
+  font-weight: 400;
+  outline: none;
+  border: 1px solid var(--black-color);
+}
+.modal input::placeholder{
+  font-size: 1.4rem;
+}
+.modal a{
+  font-size: 1.6rem;
+  color: #0d6efd;
+  margin: 8px 0;
+}
+.modal button{
+  width: 100%;
+}
+.modal-content {
+  background-color: #fefefe;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+  padding-bottom: 30px;
+  width: 80%; 
+  max-width: 500px;
+  animation-name: animatetop;
+  animation-duration: 0.6s;
+  border: 1px solid var(--grey-color);
+}
+.close-modal{
+  color: var(--border-color);
+  float: right;
+  font-size: 2.2rem;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  cursor: pointer;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 50%; opacity: 1}
+}
+
+.modal__register{
+  display: none;
+}
+
+
+
+.sticky{
+  position: -webkit-sticky; 
+  position: sticky;
+  width: 100%;
+  animation-name: headersticky;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  z-index: 7;
+  top: 0;
+  opacity: 1;
+}
+@keyframes headersticky {
+  from {top: -120px; opacity: 0}
+}

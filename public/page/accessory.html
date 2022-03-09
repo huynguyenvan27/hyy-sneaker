@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/shop.css">
+  <link rel="stylesheet" href="../css/component.css">
+  <link rel="stylesheet" href="../css/card.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <title>Sneaker</title>
+</header>
+
+<body>
+  <div class="topbar">
+    <p class="text-center">TẠO TÀI KHOẢN, DÙNG CODE 'HELLO' GIẢM 5% CHO ĐƠN HÀNG ĐẦU TIÊN</p>
+  </div>
+  <header id="header-site">
+    <div class="container  d-flex justify-content-between align-items-center">
+      <button class="btn nav-icon nav-toggle" onclick="openNav()">
+        <img src="../img/nav-mobile.svg" alt="">
+      </button>
+      <div id="overlay" onclick="closeNav()">
+      </div>
+      <nav class="sidenav d-flex flex-column" id="nav-mobile">
+        <div class=" d-flex justify-content-between align-items-center">
+          <h3>MENU</h3>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        </div>
+        <a href="../index.html" class="nav-mobile__link">Trang chủ</a>
+        <a href="../page/sneaker.html" class="nav-mobile__link">Sneaker</a>
+        <a href="../page/accessory.html" class="nav-mobile__link">Phụ kiện</a>
+        <a href="../page/blog.html" class="nav-mobile__link">Tin tức</a>
+        <a href="../page/about-us.html" class="nav-mobile__link">Giới thiệu</a>
+        <a href="../page/contact.html" class="nav-mobile__link">Liên hệ</a>
+        <a href="javascript:void(0)" class="mt-5 nav-mobile__link d-flex justify-content-between">
+          <span>Đăng nhập</span>
+          <i class="bi bi-person-fill"></i></a>
+        <a href="#" class="nav-mobile__link d-flex justify-content-between">
+          <span>Yêu thích</span>
+          <i class="bi bi-suit-heart-fill"></i></a>
+      </nav>
+      <a id="logo" href="">
+        <img src="../img/logo.png " alt="logo">
+      </a>
+      <div class="header-nav">
+        <a href="../index.html" class="underline-css">Trang chủ</a>
+        <a href="../page/sneaker.html" class="underline-css">Sneaker</a>
+        <a href="../page/accessory.html" class="underline-css active-page">Phụ kiện</a>
+        <a href="../page/blog.html" class="underline-css">Tin tức</a>
+        <a href="../page/about-us.html" class="underline-css">Giới thiệu</a>
+        <a href="../page/contact.html" class="underline-css">Liên hệ</a>
+      </div>
+      <div class="header-icon">
+        <a href="">
+          <img src="../img/search.svg" alt="">
+        </a>
+        <a href="">
+          <img src="../img/heart.svg" alt="">
+        </a>
+        <a href="javascript:void(0)" id="userLogin">
+          <img src="../img/user.svg" alt="">
+        </a>
+        <a href="javascript:void(0)" id="cart-icon" onclick="cartOpen()">
+          <img src="../img/bag.svg" alt="">
+        </a>
+        <div class="sidenav" id="mini-cart">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="mini-cart__inner">
+          </div>
+          <div class="mini-cart__router">
+            <a href="../page/cart.html" class="btn--primary btn d-block mb-3 mt-5">XEM GIỎ HÀNG</a>
+            <a href="../page/checkout.html" class="btn--primary btn d-block">TIẾN HÀNH THANH TOÁN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div id="seperate" class="position-relative">
+    <div class="seperate-block position-absolute">
+    <h1 class=" text-center  main-name">Hyy Store</h1>
+    <div class=" text-center  category-name">`
+      <a href="../index.html">Trang chủ</a>
+      <span>/</span>
+      <a href="./accessory.html">Phụ kiện</a>
+      <span>/</span>
+      <a href="#"></a>
+    </div>
+  </div>
+  </div>
+  <!-- product -->
+  <div id="list-product">
+    <div class="container-fuild">
+      <div class="row"> 
+        <div class="side-filter" onclick="toogleNavFilter()">
+          <a href="javascript:void(0)" class="text-center">BỘ LỌC SẢN PHẨM</a>
+        </div>
+        <div class="col col-lg-3 col-md-12 col-sm-12 col-12" id="filter-product">
+          <div class="search-product">
+            <input type="text" placeholder="Tìm nhanh">
+          </div>
+          <div class="filter-block">
+            <div class="filter-product">
+              <div class="d-flex justify-content-between align-items-center">
+                <h1 class="category-title">LỌC</h1>
+                <button class="btn--primary">Bỏ lọc</button>
+              </div>
+              <button class="btn btn-outline-danger filter-item category-option">
+                <i class="bi bi-x-circle"></i>
+                <label for="category-option__added">Nike</label>
+              </button>
+            </div>
+            <div class="category-product">
+              <div class="category-layout">
+                <h1 class="category-title">Giới tính</h1>
+                <ul class=" row">
+                  <li class="col-lg-6 category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="category-option__men">
+                    <label for="category-option__men">Nam</label>
+                  </li>
+                  <li class="col-lg-6 category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="category-option__women">
+                    <label for="category-option__women">Nữ</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="category-layout">
+                <h1 class="category-title">Thương hiệu</h1>
+                <ul class="grid-col-6">
+                  <li onclick="filterBrand(1, filter())" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="nike">
+                    <label for="nike">Nike</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="adidas">
+                    <label for="adidas">Adidas</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="puma">
+                    <label for="puma">Puma</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="newbalance">
+                    <label for="newbalance">Newbalance</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="reebok">
+                    <label for="reebok">Reebok</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="on">
+                    <label for="underarmour">Under Armour</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="asics">
+                    <label for="asics">Asics</label>
+                  </li>
+                  <li id="brand" onclick="filterBrand()" class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="vans">
+                    <label for="vans">Vans</label>
+                  </li>
+
+                </ul>
+              </div>
+              <div class="category-layout">
+                <h1 class="category-title">Giá thành</h1>
+                <ul>
+                  <li class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="category-option__1">
+                    <label for="category-option__1">Dưới 2 triệu</label>
+                  </li>
+                  <li class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="category-option__2">
+                    <label for="category-option__2">Từ 2 đến 5 triệu</label>
+                  </li>
+                  <li class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="category-option__3">
+                    <label for="category-option__3">Từ 5 đến 8 triệu</label>
+                  </li>
+                  <li class="category-option d-flex align-items-center">
+                    <input type="checkbox" name="Name" id="category-option__4">
+                    <label for="category-option__4">Trên 8 triệu</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="category-size">
+                <h1 class="category-title">Size</h1>
+                <div class="size-list d-flex flex-wrap justify-content-start">
+                  <button class="size-item text-center">35</button>
+                  <button class="size-item text-center">35.5</button>
+                  <button class="size-item text-center">36</button>
+                  <button class="size-item text-center">36.5</button>
+                  <button class="size-item text-center">37</button>
+                  <button class="size-item text-center">37.5</button>
+                  <button class="size-item text-center">38</button>
+                  <button class="size-item text-center">38.5</button>
+                  <button class="size-item text-center">39</button>
+                  <button class="size-item text-center">39.5</button>
+                  <button class="size-item text-center">40</button>
+                  <button class="size-item text-center">40.5</button>
+                  <button class="size-item text-center">41</button>
+                  <button class="size-item text-center">41.5</button>
+                  <button class="size-item text-center">42</button>
+                  <button class="size-item text-center">42.5</button>
+                  <button class="size-item text-center">43</button>
+                  <button class="size-item text-center">43.5</button>
+                  <button class="size-item text-center">44</button>
+                  <button class="size-item text-center">44.5</button>
+                  <button class="size-item text-center">45</button>
+                </div>
+              </div>
+            </div>
+            <div class="category-product d-flex flex-column">
+              <h1>Danh mục sản phẩm</h1>
+              <a class="category-title" href=""> Giày dành cho Nam</a>
+              <a class="category-title" href="">Giày dành cho Nữ</a>
+              <a class="category-title" href="">Giày đá bóng</a>
+              <a class="category-title" href="">Giày chạy bộ</a>
+            </div>
+          </div>
+        </div>
+        <div class="col col-lg-9 col-md-12 col-sm-12 col-12">
+          <div class="layout-page d-flex justify-content-between align-items-center">
+            <span>
+              <button class="btn layout-page-th">
+                <i class="fas fa-th mx-auto"></i>
+              </button>
+              <button class="btn layout-page-list">
+                <i class="fas fa-list mx-auto"></i>
+              </button>
+            </span>
+            <select class="btn-cart-list">
+              <option selected hidden>
+                Sắp xếp
+              </option>
+              <option value="1">
+                Mặc định
+              </option>
+              <option value="2">
+                Giá giảm dần
+              </option>
+              <option value="3">
+                Giá Tăng dần
+              </option>
+              <option value="4">
+                Tên: A-Z
+              </option>
+              <option value="5">
+                Tên: Z-A
+              </option>
+            </select>
+          </div>
+          <div class="row" id="list-product__inner">
+            <!-- <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike1.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike2.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike3.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike4.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike5.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike1.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike2.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike3.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-6 col-6">
+              <div class="product-card">
+
+                <div class="product-card__inner">
+                  <a href="" class="product-link">
+                    <img src="../img/new-shoes/nike5.webp" alt="shoes">
+                  </a>
+                  <div class="text-center quick-action">
+                    <button class="add-to-cart">
+                      <span class="icon-title">Thêm vào giỏ hàng</span>
+                      <i class="bi bi-bag"></i>
+                    </button>
+                    <button class="favourite">
+                      <span class="icon-title">Thêm vào yêu thích</span>
+                      <i class="bi bi-suit-heart"></i>
+                    </button>
+                    <button class="quick-review">
+                      <span class="icon-title">Xem nhanh</span>
+                      <i class="bi bi-search"></i>
+                    </button>
+                  </div>
+                </div>
+                <a href="" class="product-info">
+                  <h1 class="name-tag">Nike Air Max 95 By You - Black/Sapphire</h1>
+                </a>
+                <h1 class="price">3,000,000đ</h1>
+              </div>
+            </div> -->
+          </div>
+
+
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link active" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="newsletter">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-2 text-center">
+          <i class="bi bi-envelope"></i>
+          Đăng kí nhận tin
+        </div>
+        <div class="newsletter-input d-flex justify-content-between align-items-center col-lg-8">
+          <input type="text" placeholder="Nhập email của bạn">
+          <button class="btn--primary">ĐĂNG KÝ</button>
+        </div>
+        <div class="col-lg-2 text-center">
+          <i class="bi bi-telephone"></i>
+          Hỗ trợ: 0981930183
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- footer -->
+  <footer>
+    <div class="container">
+      <a id="logo" href="">
+        <img src="../img/logo.png " alt="logo">
+      </a>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          <div class="store">
+            <h1>STORE 1</h1>
+            <p class="store-icon">
+              <i class="bi bi-house-door"></i>
+              <span>Số 9a, 44 Trần Thái Tông</span>
+            </p>
+            <p class="store-icon">
+              <i class="bi bi-telephone"></i>
+              <span>0981 930 183</span>
+            </p>
+          </div>
+          <div class="store">
+            <h1>STORE 2</h1>
+            <p class="store-icon">
+              <i class="bi bi-house-door"></i>
+              <span>Số 27 , 30 Trương Định</span>
+            </p>
+            <p class="store-icon">
+              <i class="bi bi-telephone"></i>
+              <span>0982 883 789</span>
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 d-flex flex-column ">
+          <h1>THÔNG TIN</h1>
+          <a href="">Trang chủ</a>
+          <a href="">Sneaker</a>
+          <a href="">Phụ kiện</a>
+          <a href="">Tin tức</a>
+          <a href="">Chúng tôi</a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 d-flex flex-column">
+          <h1>HỖ TRỢ</h1>
+          <a href="">Chính sách giao hàng</a>
+          <a href="">Chính sách đổi trả</a>
+          <a href="">Chính sách bảo mật</a>
+          <a href="">Điều khoản dịch vụ</a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+          <h1>FANFAGE</h1>
+          <p>Theo dõi để nhận được thông tin ưu đãi sớm nhất</p>
+          <a href="" class="icon-link facebook"><i class="fa-brands fa-facebook-f"></i></i></a>
+          <a href="" class="icon-link twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="" class="icon-link youtube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="" class="icon-link pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="close-modal">
+        <i class="bi bi-x-square-fill"></i>
+      </div>
+      <div class="modal__register">
+        <h3 class="heading-1 text-center">TẠO TÀI KHOẢN</h3>
+        <form action="">
+          <input type="text" placeholder="Họ và tên:">
+          <input type="email" placeholder="Email:">
+          <input type="password" placeholder="Mật khẩu:" autocomplete="on">
+          <input type="password" placeholder="Nhập lại mật khẩu:" autocomplete="on">
+        </form>
+        <button class="btn--primary">TẠO TÀI KHOẢN</button>
+        <button class="btn--white mt-5 mode-login" onclick="modeLogin()">QUAY LẠI ĐĂNG NHẬP</button>
+      </div>
+      <div class="modal__login">
+        <h3 class="heading-1 text-center">ĐĂNG NHẬP</h3>
+        <form action="">
+          <input type="email" placeholder="Email:">
+          <input type="password" placeholder="Mật khẩu:" autocomplete="on">
+        </form>
+        <a href="" class="">Quên mật khẩu?</a>
+        <button class="btn--primary">ĐĂNG NHẬP</button>
+        <button class="btn--white mt-5 mode-register" onclick="modeRegister()">ĐĂNG KÝ MỚI</button>
+      </div>
+      </p>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../js/base.js"></script>
+  <script type="module" src="../js/product.js"></script>
+  <script src="../js/handle.js"></script>
+</body>
+
+</html>

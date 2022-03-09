@@ -1,0 +1,153 @@
+@media only screen and (min-width: 1200px){
+/* name-colections */
+  .side-filter{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .side-filter{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 992px){
+
+/* header */
+
+  .header-nav{
+    display: none;
+  }
+  .header-icon>a:nth-child(1){
+    display:none
+  }
+  .header-icon>a:nth-child(2){
+    display:none
+  }
+  .header-icon>a:nth-child(3){
+    display:none
+  }
+  .nav-icon{
+    display: block;
+  }
+/* card */
+  .quick-action{
+    opacity: 0.9;
+  }
+  .banner-title{
+    display: none;
+  }
+  /* newsletter */
+  #newsletter .row>.newsletter-input{
+    margin: 10px 0;
+  }
+
+  /* blog */
+  .news-list .news-block{
+    flex-direction: column!important;
+
+  }
+  .news-list .news-info{
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  /* sneaker */
+  #list-product{
+    margin-top: 20px;
+  }
+  .btn-filer-product{
+    display: inline-block;
+  }
+
+  #filter-product{
+    display: none;
+  }
+  .side-filter{
+    display: block;
+  }
+
+
+
+}
+
+@media only screen and (max-width: 768px){
+  .quick-review{
+    display: none;
+  }
+  /* footer */
+  footer .container{
+    text-align: center;
+
+  }
+  footer .container .row>div{
+    margin-top: 20px;
+  }
+
+  /* table */
+  table thead{
+    display: none;
+  }
+  table tr{
+    display: flex;
+    flex-direction: column;
+  }
+  table td{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    align-items: center;
+
+  }
+  table tbody td:not(td:first-child)::before{
+    display: block;
+    content:attr(data) " ";
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  #code-input{
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  #header-site{
+    padding: 20px 0;
+  }
+  #logo{
+    width: 55px ;
+    height: 30px;
+  }
+  .col{
+    padding: 0 5px;
+  }
+  .quick-action button{
+    padding:2px 6px;
+    margin: 0 8px;
+  }
+
+  .btn--primary,.btn--white{
+    font-size: 1.4rem;
+  }
+  .btn-link{
+    font-size: 1.4rem;
+  }
+  .content-page .col{
+    padding: 0px 15px;
+  }
+
+  .name-colection{
+    font-size: 3rem !important;
+  }
+  #option-sex h1{
+    font-size: 3.6rem;
+  }
+  /* sneaker */
+
+
+  /* table */
+
+
+}
+
+
