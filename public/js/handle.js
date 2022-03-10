@@ -2,7 +2,6 @@
 let formatter = new Intl.NumberFormat("en-US", {
   currency: "VND",
 });
-var toastLiveExample = document.getElementById('liveToast')
 let cart =[];
 const miniCart__inner = document.querySelector(".mini-cart__inner")
 function getProductItemApi(id){
@@ -26,7 +25,7 @@ const getAddToCart = async (a)=>{
         item.quantity+= 1;
         renderToast(item.product)
       }else{
-        cart.push({product,quantity:1})
+        cart.push({product,quantity:1,size:42})
         renderToast(product)
       }
       renderMiniCart(cart)
@@ -94,7 +93,7 @@ const renderListProduct =(data,path)=>{
         <label class="product-price color--red">${formatter.format(e.quantity*e.product.price)}đ</label>
       </span>
     </div>
-    <button href="" class="btn-remove btn" onclick="deteleMiniCartItem(${e.product.id})"><i class="bi bi-trash"></i></button>
+    <button href="" class="btn-remove btn" onclick="deteleMiniCartItem(${i})"><i class="bi bi-trash"></i></button>
     </div>
   </div>`
   };
@@ -120,7 +119,7 @@ const cartQuantity=(data)=>{
 }
 const renderMiniCart =(data)=>{
   miniCart__inner.innerHTML="";
-  if(!data){
+  if(!data || data.length==0){
   const para = document.createElement("h2");
   para.innerText = "Hiện tại không có sản phẩm trong giỏ hàng";
   miniCart__inner.appendChild(para);
@@ -128,6 +127,7 @@ const renderMiniCart =(data)=>{
   }
   // miniCart__inner.innerHTML="";
   else{
+  
   miniCart__inner.innerHTML=
     `<div class="heading-cart text-center mb-4">
     <span class="text">Sản phẩm trong giỏ:</span>
@@ -142,28 +142,138 @@ const renderMiniCart =(data)=>{
   document.querySelector(".mini-cart__router").style.display="block";
   }
 }
-window.onload=()=>{
-  renderMiniCart(JSON.parse(localStorage.getItem('cart')));
+
+//  localStorage = [{product:{id=?....},quantity:1}]
+// xóa cartItem
+const deteleMiniCartItem=(id)=>{
+  let newArr=[];
+  newArr = JSON.parse(localStorage.getItem('cart'))
+  // console.log(JSON.parse(localStorage.getItem('cart')));
+  newArr.splice(id,1);
+  // console.log(newArr);
+  localStorage.setItem("cart",JSON.stringify(newArr))
+  renderMiniCart(newArr);
+  renderCartBill(newArr)
 }
 
+// console.log(getComputedStyle(document.querySelector('#cart-icon'), ':after').setPropertyValue('content'));
 
-// xóa cartItem
-// let newArr=[];
-// const deteleMiniCartItem=(id)=>{
-//   newArr = JSON.parse(localStorage.getItem('cart')).filter(e=>
-//     e.product.id!==id
-//   )
-//   console.log(newArr);
-//   console.log(JSON.parse(localStorage.getItem('cart')));
-//   console.log(id);
-// }
 
-// console.log(document.querySelector(".btn-remove.btn"));
 
-//  cart = [{product:{id=?....},quantity:1}]
+window.onload=()=>{renderMiniCart(JSON.parse(localStorage.getItem('cart')))}
+
 
 
 
 
 
   
+const renderCartItem=(arr)=>{
+  let str="";
+  arr.forEach((e,i)=>{
+    str+=`               
+    <tr>
+    <td class="d-flex align-items-center">
+      <a href="product.html?id=${e.product.id}" class="product-img">
+        <img src="${e.product.img}" alt="${e.product.name}">
+      </a>
+      <div class="d-flex flex-column ms-3">
+        <a href="product.html?id=${e.product.id}" class="product-name">${e.product.name}</a>
+        <label class="product-details">${formatter.format(e.product.price)}đ</label>
+        <label class="product-details" for="size-final">Size:${e.size}</label>
+      </div>
+    </td>
+    <td data="Số lượng:">
+        <div class="sneaker-quantity">
+          <button class="btn btn-light btn-down" onclick="down(${e.product.id})">
+            <i class="bi bi-dash"></i>
+          </button>
+          <input class="sneaker-quantity__value align-middle" type="number" name="quantity" min="1" max="10" value="${e.quantity}">
+          <button class="btn btn-light btn-up" onclick="up(${e.product.id})">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+    </td>
+    <td data="Tạm tính:">
+      <label class="product-price color--red">${formatter.format(e.quantity*e.product.price)}đ</label>
+    </td>
+    <td>
+      <button class="btn-remove btn" onclick="deteleMiniCartItem(${i})"><i class="bi bi-trash"></i></button>
+    </td>
+  </tr>`
+
+  })
+  return str;
+}
+
+
+  
+const renderCartBill=(arr)=>{
+  const cartBill = document.getElementById("cart-bill");
+  if(!arr || arr.length==0){
+    cartBill.innerHTML="<h1 class='text-center'>Không có sản phẩm nào trong giỏ</h1>";
+    document.getElementById("btn-checkout").style.display="none";
+  }
+  else{
+  
+  cartBill.innerHTML=`
+              <thead>
+              <tr>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Tạm tính</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="list-cart-item-final">
+              ${renderCartItem(arr)}
+            </tbody>
+            <tfoot> 
+              <tr>
+                <td class="d-flex align-items-center">
+                    <input type="text" id="code-input" placeholder="Mã giảm giá:">
+                    <input type="submit" class="btn--primary" value="ÁP DỤNG">
+                </td>
+                <th colspan="100%" class="text-center">
+                    <label class="">Tổng cộng:</label>
+                    <label class="total-value color--red">${cartTotal(arr)}đ</label>
+                </th>
+              </tr>
+            </tfoot>
+  `
+  }
+
+}
+
+
+
+const up = (id,e)=>{
+  let storage = localStorage.getItem('cart')
+  cart = JSON.parse(storage)  
+  let item = cart.find(e =>e.product.id==id)
+  item.quantity+=1;
+  if(item.quantity < 1) {
+    item.quantity = 1;
+  } else if(item.quantity > 10) {
+    item.quantity = 10;
+  } 
+  renderMiniCart(cart)
+  renderCartBill(cart)
+  localStorage.setItem("cart",JSON.stringify(cart))
+}
+const down= (id)=>{
+  let storage = localStorage.getItem('cart')
+  cart = JSON.parse(storage)  
+  let item = cart.find(e =>e.product.id==id)
+  item.quantity-=1;
+  if(item.quantity < 1) {
+    item.quantity = 1;
+  } else if(item.quantity > 10) {
+    item.quantity = 10;
+  } 
+  renderMiniCart(cart)
+  renderCartBill(cart)
+  localStorage.setItem("cart",JSON.stringify(cart))
+}
+
+renderCartBill(JSON.parse(localStorage.getItem('cart')));

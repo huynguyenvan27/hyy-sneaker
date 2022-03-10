@@ -8,6 +8,9 @@ const getProducts = async()=> {
     // console.log(products);
     // Render ra ngoài giao diện
     renderProducts(products);
+    let newArr=[];
+    newArr = products.filter(a=>a.brand="nike")
+    console.log(newArr);
   } catch (error) {
       console.log(error);
   }
@@ -24,14 +27,24 @@ const renderProducts = (arr) =>{
   }
   listProduct.innerHTML= util.renderUI(arr,"");
 }
-  
 
+
+
+const btnFilter = document.getElementsByName("brand")
+console.log(btnFilter);
+Array.from(btnFilter).forEach(e=>{
+  e.addEventListener("click",()=>{
+    console.log(e.id);
+    
+
+
+  })
+})
 
 
 
 
 getProducts();
-
 
 
 

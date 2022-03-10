@@ -1,8 +1,4 @@
-import * as util from './util.js'
-// import '..slick-carousel'
-  
-
-
+import * as util from './util.js';
 
 
 // const productDetail = document.getElementById("product-details__inner")
@@ -10,8 +6,7 @@ const descptTab = document.querySelector(".information-product__descript")
 const voteTab = document.querySelector(".your-vote")
 const btnInfo = document.querySelector("#btn-info")
 const btnVote = document.querySelector("#btn-vote")
-
-
+let kt = 0;
 
 
 function getProductDetail(){
@@ -24,9 +19,35 @@ function getProductDetail(){
   .then(res=>{
       if(res.statusText === "OK"){
         product = res.data;
-        // console.log(product);
+        console.log(product);
         renderProductDetail(product);
         renderProductDescpt(product)
+
+
+        const btnAddCart = document.getElementById("btnAddCart")
+        btnAddCart.addEventListener("click",()=>{
+          if(kt!=0){
+            let storage = localStorage.getItem('cart')
+            if(storage){
+              cart = JSON.parse(storage)  
+              let item = cart.find(e =>e.product.id==product.id
+            )
+              if(item){
+                item.quantity+= Number(quantity.value);
+                item.size = kt;
+              }else{
+                cart.push({product,quantity:Number(quantity.value),size:kt})
+                // renderToast(product)
+              }
+            }
+            renderMiniCart(cart)
+            localStorage.setItem("cart",JSON.stringify(cart))
+            // console.log(cart);
+          }else{
+            alert("Chọn size trước khi nhấn thêm vào giỏ hàng")
+          }
+        })
+
       }
   })
   .catch(error=>console.log(error))
@@ -76,23 +97,27 @@ function renderProductDetail(obj){
     document.querySelector(".sneaker-price").innerHTML = util.renderPrice(obj);
     obj.list_size.forEach((e,i) => {
       document.querySelector(".sneaker-size__list").innerHTML += `
-      <input id="${e}" type="radio" class="upload" name="upload" value=${e} />
+      <input id="${e}" type="radio" class="upload" name="size" value=${e} />
       <label class="btn-size" for="${e}">${e}</label>
       `});
-    const btnSize = document.querySelectorAll(".btn-size>span");
+    
+    const inputRadio = document.getElementsByName("size");
+    console.log(inputRadio);
     // console.log(btnSize);
-    Array.from(btnSize).forEach(e=>{
+    Array.from(inputRadio).forEach((e,i)=>{
       e.addEventListener("click",()=>{
-        console.log(e.innerText);
-
-
+        if (e.checked === true){
+          kt=e.value;
+          console.log(kt);
+        }
       })
     })
-    
 }
 
 
-    
+
+
+
   
 
 function renderProductDescpt(obj){
@@ -160,7 +185,6 @@ btnVote.addEventListener("click",function(){
 
 
 // quantity
-
 const btnDown = document.querySelector(".btn.btn-light.btn-down")
 const btnUp = document.querySelector(".btn.btn-light.btn-up")
 let quantity= document.querySelector(".sneaker-quantity__value");
@@ -187,4 +211,3 @@ if(newval > max) newval = max;
 quantity.value = Number(newval);
 e.preventDefault();
 }
-

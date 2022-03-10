@@ -37,6 +37,22 @@
 .header-icon>a:hover{
   transform: translateY(-2px);
 }
+#cart-icon{
+  position: relative;
+}
+#cart-icon::after{
+  content:attr(data-value);
+  display:block;
+  position: absolute;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  top: -5px;
+  background-color: var(--red-color);
+  border-radius: 50%;
+  padding: 0 3px;
+  right: -13px;
+}
 /* page navigation */
 .pagination{
   margin-top: 60px;

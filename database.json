@@ -31,7 +31,7 @@
         44
       ],
       "discount": 0.2,
-      "brand": "Nike",
+      "brand": "nike",
       "type": "sneaker",
       "inStock": 20,
       "isWishlist": false,
@@ -66,7 +66,7 @@
         44
       ],
       "discount": 0.2,
-      "brand": "Nike",
+      "brand": "adidas",
       "type": "sneaker",
       "inStock": 20,
       "isWishlist": false,
