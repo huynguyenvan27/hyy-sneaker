@@ -81,8 +81,11 @@
 .filter-product{
   margin-bottom: 20px;
 }
-.filter-product button{
+.filter-product .btn{
   font-size: 1.6rem;
+}
+#removeAll{
+  visibility: hidden;
 }
 .filter-item a>i{
   color: var(--red-color);

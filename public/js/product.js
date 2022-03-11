@@ -27,6 +27,7 @@ const getProducts = async()=> {
         `
           brandAdd.classList.add("btn-outline-danger","btn","me-1",`remove-${e.id}`)
           btnAddBlock.appendChild(brandAdd);
+          removeAll.style.visibility="visible";
           brand.push(e.id);
           // <i class="bi bi-x-circle"></i>
           // brandAdd.onclick=function(){

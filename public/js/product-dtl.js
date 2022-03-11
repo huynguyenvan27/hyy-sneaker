@@ -39,9 +39,11 @@ function getProductDetail(){
                 cart.push({product,quantity:Number(quantity.value),size:kt})
                 // renderToast(product)
               }
+              
             }
             renderMiniCart(cart)
             localStorage.setItem("cart",JSON.stringify(cart))
+            cartOpen();
             // console.log(cart);
           }else{
             alert("Chọn size trước khi nhấn thêm vào giỏ hàng")
@@ -53,9 +55,13 @@ function getProductDetail(){
   .catch(error=>console.log(error))
 }
 
-
+function renderSeperate(){
+  
+}
 
 function renderProductDetail(obj){
+  const pageCurrent = document.querySelector(" .category-name > a:last-child")
+  pageCurrent.innerHTML=`<span>${obj.name}</span>`;
   obj.imgLg.forEach((e,i) => {
     const sliderForItem = document.createElement("div")
     sliderForItem.classList.add("slider-for__item");
