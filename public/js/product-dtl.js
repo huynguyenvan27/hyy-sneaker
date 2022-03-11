@@ -201,6 +201,13 @@ btnVote.addEventListener("click",function(){
 })
 
 
+const randomArr =(arr)=>{
+  let newArr =[];
+  
+
+
+}
+
 // quantity
 const btnDown = document.querySelector(".btn.btn-light.btn-down")
 const btnUp = document.querySelector(".btn.btn-light.btn-up")
