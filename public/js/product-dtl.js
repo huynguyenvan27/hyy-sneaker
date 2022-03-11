@@ -60,6 +60,7 @@ function renderSeperate(){
 }
 
 function renderProductDetail(obj){
+  document.title = obj.name;
   const pageCurrent = document.querySelector(" .category-name > a:last-child")
   pageCurrent.innerHTML=`<span>${obj.name}</span>`;
   obj.imgLg.forEach((e,i) => {
