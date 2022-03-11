@@ -175,7 +175,7 @@
         44
       ],
       "discount": 0,
-      "brand": "Under Armour",
+      "brand": "UnderArmour",
       "type": "sneaker",
       "inStock": 20,
       "isWishlist": false,
@@ -212,7 +212,7 @@
         44
       ],
       "discount": 0,
-      "brand": "Under Armour",
+      "brand": "adidas",
       "type": "sneaker",
       "inStock": 20,
       "isWishlist": false,
@@ -276,7 +276,7 @@
         44
       ],
       "discount": 0,
-      "brand": "New Balance",
+      "brand": "NewBalance",
       "type": "sneaker",
       "inStock": 20,
       "isWishlist": false,

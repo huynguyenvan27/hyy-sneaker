@@ -246,7 +246,6 @@ const renderCartBill=(arr)=>{
 }
 
 
-
 const up = (id,e)=>{
   let storage = localStorage.getItem('cart')
   cart = JSON.parse(storage)  

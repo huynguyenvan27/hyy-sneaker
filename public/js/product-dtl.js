@@ -77,8 +77,19 @@ function renderProductDetail(obj){
     arrows: true,
     fade: true,
     asNavFor: '.slider-nav',
+    dotsClass: 'slick-dots-for',
     nextArrow: '<button type="button" class="slick--slick-next"><i class="bi bi-chevron-right"></i></button>',
     prevArrow: '<button type="button" class="slick--slick-prev"><i class="bi bi-chevron-left"></i></button>',
+    responsive: [
+      { slidesToShow: 1,
+        slidesToScroll: 1,
+        breakpoint: 768,
+        settings: {
+        arrows: true,
+        dots:true,
+          }
+        },
+        ]
     });
     $('.slider-nav').slick({
     slidesToShow: 5,

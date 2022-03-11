@@ -59,6 +59,13 @@
   display: flex;
   justify-content: center;
 }
+.page-link.active{
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+.page-link.disable{
+  display: none;
+}
 .page-link{
   font-size: 1.6rem;
   color: var(--black-color);
@@ -362,3 +369,27 @@ footer .store{
 @keyframes headersticky {
   from {top: -120px; opacity: 0}
 }
+
+
+
+/* sideNav Filter */
+
+.side-filter.btn{
+  background-color:var(--grey-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 15px;
+  width: 100%;
+  display: block;
+}
+.side-filter.btn.collapsible{
+  background-color: #ccc;
+}
+
+#filter-product{
+  margin-bottom: 20px;
+}
+

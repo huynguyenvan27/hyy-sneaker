@@ -34,7 +34,7 @@
           <h3>MENU</h3>
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         </div>
-        <a href="" class="nav-mobile__link">Trang chủ</a>
+        <a href="../index.html" class="nav-mobile__link">Trang chủ</a>
         <a href="../page/sneaker.html" class="nav-mobile__link">Sneaker</a>
         <a href="../page/accessory.html" class="nav-mobile__link">Phụ kiện</a>
         <a href="../page/blog.html" class="nav-mobile__link">Tin tức</a>
@@ -98,8 +98,9 @@
   <div id="list-product">
     <div class="container">
       <div class="row">
+        <button class="btn side-filter">DANH MỤC TIN TỨC</button>
         <!--news-hot-->
-        <div class="col-lg-3 col-md-12 col-sm-12 col-12 col">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-12 col" id="filter-product">
           <div class="news-hot">
             <h1 class="heading-1 line-seperate text-center">BÀI VIẾT MỚI NHẤT</h1>
             <div class="news-block d-flex justify-content-between">
@@ -220,7 +221,7 @@
           <nav aria-label="Page navigation">
             <ul class="pagination">
               <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
+                <a class="page-link disable" href="#" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>

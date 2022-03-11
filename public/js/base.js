@@ -28,7 +28,12 @@ const modal = document.getElementById("myModal");
 const btn = document.getElementById("userLogin");
 
 const closeModal = document.getElementsByClassName("close-modal")[0];
-
+const btnLoginMobile = document.querySelector("#nav-mobile a:nth-child(8)")
+// console.log(btnLoginMobile);
+btnLoginMobile.onclick = function(){
+  closeNav();
+  modal.style.display = "block";
+}
 btn.onclick = function() {
   modal.style.display = "block";
 }
@@ -80,9 +85,16 @@ function sendMail(){
 
 // toogle btn filter
 
-function toogleNavFilter(){
-  document.querySelector("#filter-product").classList.toggle("block");
-}
+const btnCollapse = document.querySelector(".side-filter.btn")
+btnCollapse.addEventListener("click",function(){
+  this.classList.toggle("collapsible")
+  let content = this.nextElementSibling;
+  if (content.style.maxHeight){
+    content.style.maxHeight = null;
+  } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
 
+})
 
 

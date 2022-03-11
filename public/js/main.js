@@ -123,11 +123,16 @@ const getNewShoes = (arr) =>{
       },
         ]
     })
-    // TOGGLE HAMBURGER & COLLAPSE NAV
-    $('.nav-toggle').on('click', function() {
-      $(this).toggleClass('open');
-      $('.menu-left').toggleClass('collapse');
-    });
+
+
+
+
+
+    // collapse
+    // $('.nav-toggle').on('click', function() {
+    //   $(this).toggleClass('open');
+    //   $('.menu-left').toggleClass('collapse');
+    // });
 
 
 // countdown time 

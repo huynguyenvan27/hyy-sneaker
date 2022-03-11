@@ -83,5 +83,13 @@ export const renderUI=(arr,source)=>{
   return str;
 }
 
+export const btnCollapse = document.querySelector(".side-filter")
 
-
+export const collapse = ()=>{
+  this.classList.toogle("collapsible")
+  if (content.style.maxHeight){
+    content.style.maxHeight = null;
+  } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
+}
