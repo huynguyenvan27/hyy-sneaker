@@ -4,6 +4,8 @@ const filterProduct = document.querySelector(".filter-product")
 const removeAll = document.getElementById("removeAll")
 const btnAddBlock = document.querySelector(".btn-add-block")
 const btnFilter = document.getElementsByName("brand")
+const searchBar = document.querySelector(".search-product input")
+
 
 let products=[] ;
 const getProducts = async()=> {
@@ -13,6 +15,20 @@ const getProducts = async()=> {
     // console.log(products);
     // Render ra ngoài giao diện
     renderProducts(products);
+    searchBar.addEventListener("change",()=>{
+      let newArrFind = [];
+      console.log(searchBar.value.toLowerCase());
+      products.forEach((e,i)=>{
+        if(e.name.toLowerCase().includes(searchBar.value.toLowerCase())){
+          newArrFind.push(e);
+          renderProducts(newArrFind)
+        }
+        if(searchBar.value==0){
+          renderProducts(products)
+        }
+      })
+    })
+    
     let brand = []; 
     let newArr=[];
     Array.from(btnFilter).forEach(e=>{
@@ -29,18 +45,6 @@ const getProducts = async()=> {
           btnAddBlock.appendChild(brandAdd);
           removeAll.style.visibility="visible";
           brand.push(e.id);
-          // <i class="bi bi-x-circle"></i>
-          // brandAdd.onclick=function(){
-          //   brandAdd.remove();
-          //   Array.from(btnFilter).forEach(e=>{
-          //     if(e.id==btn){
-          //       e.checked=false;
-          //       brand.pop()
-
-          //       renderProducts(products)
-          //     }
-          //   })
-          // }
           removeAll.onclick = ()=>{
             btnAddBlock.innerHTML="";
             Array.from(btnFilter).forEach(e=>{
@@ -51,9 +55,7 @@ const getProducts = async()=> {
                 renderProducts(products)
               }
             })
-            
           }
-  
           newArr = products.filter(a=>brand.includes(a.brand.toLowerCase()))
           renderProducts(newArr);
           if(newArr.length==0){
@@ -74,6 +76,8 @@ const getProducts = async()=> {
       console.log(error);
   }
 }
+
+
 
 const renderProducts = (arr) =>{
   const listProduct = document.getElementById("list-product__inner");

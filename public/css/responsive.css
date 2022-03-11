@@ -315,6 +315,10 @@
   #news{
     margin: 30px 0;
   }
+  /* checkout */
+  .btn-option-pay{
+    padding: 8px 0;
+  }
 
 }
 

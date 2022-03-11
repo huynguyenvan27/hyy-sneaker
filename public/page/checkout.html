@@ -164,7 +164,7 @@
           <form action="">
             <div class="contact-input">
               <label for="contact-input__name">Họ và tên:</label>
-              <input type="text" class="input-class" name="user" id="contact-input__name" >
+              <input type="text" class="input-class" name="name" id="contact-input__name" >
               <small>error</small>
             </div>
             <div class="contact-input">
@@ -234,14 +234,16 @@
         </div>
         <div class="col col-lg-6 col-12 my-5 order-sm-2 order-lg-3 order-2">
           <h1 class="heading-1 line-seperate"> Bước 2: Chọn phương thức thanh toán</h1>
-          <button class="btn-option-pay d-flex align-items-center justify-content-center">
+          <input type="radio" id="payment-ship" name="payment">
+          <label for="payment-ship" class="btn-option-pay d-flex align-items-center justify-content-center">
             <i class="bi bi-bag me-4"></i>
             <h1 class="text">THANH TOÁN KHI NHẬN HÀNG</h1>
-          </button>
-          <button class="btn-option-pay d-flex align-items-center justify-content-center">
+          </label>
+          <input type="radio" id="payment-card" name="payment">
+          <label for="payment-card" class="btn-option-pay d-flex align-items-center justify-content-center">
             <i class="bi bi-credit-card-2-back me-4"></i>
             <h1 class="text">THANH TOÁN ONLINE</h1>
-          </button>
+          </label>
         </div>
       </div>
     </div>
@@ -349,7 +351,6 @@
         <button class="btn--primary">ĐĂNG NHẬP</button>
         <button class="btn--white mt-5 mode-register" onclick="modeRegister()">ĐĂNG KÝ MỚI</button>
       </div>
-      </p>
     </div>
 
   </div>
