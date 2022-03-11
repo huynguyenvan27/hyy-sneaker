@@ -119,7 +119,7 @@ function renderProductDetail(obj){
       `});
     
     const inputRadio = document.getElementsByName("size");
-    console.log(inputRadio);
+    // console.log(inputRadio);
     // console.log(btnSize);
     Array.from(inputRadio).forEach((e,i)=>{
       e.addEventListener("click",()=>{
@@ -201,12 +201,6 @@ btnVote.addEventListener("click",function(){
 })
 
 
-const randomArr =(arr)=>{
-  let newArr =[];
-  
-
-
-}
 
 // quantity
 const btnDown = document.querySelector(".btn.btn-light.btn-down")

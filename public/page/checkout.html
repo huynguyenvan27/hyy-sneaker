@@ -173,15 +173,18 @@
               <small>error</small>
             </div>
             <div class="contact-input d-flex justify-content-between flex-wrap">
-                <select name="city"  required id="city">
+                <select name="city" class="input-class"  required id="city">
                   <option value="" hidden selected>Chọn tỉnh/thành phố</option>
                 </select>
-                <select name="district" required id="district">
+                <small></small>
+                <select name="district" class="input-class" required id="district">
                   <option value="" hidden selected>Chọn quận/huyện</option>
                 </select>
-                <select name="ward" required id="ward">
+                <small></small>
+                <select name="ward" class="input-class" required id="ward">
                   <option value="" hidden selected>Chọn xã/phường</option>
                 </select>
+                <small></small>
             </div>
             <div class="contact-input">
               <label for="contact-input__text">Địa chỉ:</label>
@@ -225,7 +228,7 @@
           </div>
           <div class=" d-flex justify-content-between align-items-center mt-5">
             <a href="../page/cart.html" class="btn--white me-3">Quay lại giỏ hàng</a>
-            <button class="btn--primary" onclick="valiadation()">Tiến hành đặt hàng</button>
+            <button class="btn--primary" id="shopping">Tiến hành đặt hàng</button>
           </div>
 
         </div>
@@ -355,78 +358,6 @@
   <script src="../js/base.js"></script>
   <script src="../js/handle.js"></script>
   <script type="module" src="../js/checkout.js"></script>
-  <script>
-    const userName = document.getElementById("contact-input__name");
-    const address = document.getElementById("contact-input__address");
-    const phone = document.getElementById("contact-input__phone");
-    const message = document.getElementById("contact-input__message")
-    const inputEles = document.querySelectorAll('.input-class');
 
-    function valiadation(){
-      Array.from(inputEles).map((ele) =>
-        ele.classList.remove('success', 'error')
-      );
-      let isValid = checkValidation();
-      if(isValid){
-        alert("Gửi thành công")
-      }
-    }
-    function checkValidation(){
-      let isCheck = true;
-      // name
-      if(userName.value==""){
-        setError(userName,"Tên không được để trống");
-        isCheck = false;
-      }else{
-        setSucces(userName)
-      }
-      if(message.value==""){
-        setError(message,"Nội dung không được để trống");
-        isCheck = false;
-      }else{
-        setSucces(message)
-      }
-      // email
-      if(address.value==""){
-        setError(address,"Email không được để trống");
-        isCheck= false;
-      }else{
-        setSucces(address);
-      }
-      // phone
-      if(phone.value == ""){
-        setError(phone,"Số điện thoại không được để trống");
-        isCheck = false;
-      }else if(!isPhone(phone.value)){
-        setError(phone,"Số điện thoại không đúng định dạng");
-        return isCheck = false;
-      }else{
-        setSucces(phone);
-      }
-      return isCheck;
-    }
-    function setSucces(inputEle){
-      inputEle.classList.add("success");
-    }
-    function setError(inputEle,text){
-      const inputMsg = inputEle.parentNode;
-      inputEle.classList.add("error");
-      inputMsg.querySelector("small").innerText=text;
-    }
-    // isEmail
-    function isEmail(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-    }
-    //isPhone
-    function isPhone(number) {
-      return /([\+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/.test(number);
-    }
-    // isBirthday
-    function isBirthday(birthday){
-      return /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(birthday)
-    }
-
-
-  </script>
 </body>
 </html>

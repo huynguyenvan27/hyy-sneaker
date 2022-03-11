@@ -2,6 +2,83 @@ import * as util from './util.js'
 
 // util.upAndDown();
 
+
+
+
+const userName = document.getElementById("contact-input__name");
+const address = document.getElementById("contact-input__address");
+const phone = document.getElementById("contact-input__phone");
+const inputEles = document.querySelectorAll('.input-class');
+const select =  document.getElementsByTagName("select")
+const shopping = document.getElementById("shopping")
+console.log(shopping);
+shopping.addEventListener("click",valiadation)
+function valiadation(){
+  Array.from(inputEles).map((ele) =>
+    ele.classList.remove('success', 'error')
+  );
+  let isValid = checkValidation();
+  if(isValid){
+    alert("Đơn hàng của bạn sẽ được xác nhận trong ít phút")
+  }
+}
+function checkValidation(){
+  let isCheck = true;
+  // name
+  if(userName.value==""){
+    setError(userName,"Tên không được để trống");
+    isCheck = false;
+  }else{
+    setSucces(userName)
+  }
+  Array.from(select).forEach(e=>{
+  if (e.value){
+    setSucces(e)
+    }else{
+      setError(e,"");
+      isCheck = false;
+    }
+  })
+  // email
+  if(address.value==""){
+    setError(address,"Email không được để trống");
+    isCheck= false;
+  }else{
+    setSucces(address);
+  }
+  // phone
+  if(phone.value == ""){
+    setError(phone,"Số điện thoại không được để trống");
+    isCheck = false;
+  }else if(!isPhone(phone.value)){
+    setError(phone,"Số điện thoại không đúng định dạng");
+    return isCheck = false;
+  }else{
+    setSucces(phone);
+  }
+  return isCheck;
+}
+function setSucces(inputEle){
+  inputEle.classList.add("success");
+}
+function setError(inputEle,text){
+  const inputMsg = inputEle.parentNode;
+  inputEle.classList.add("error");
+  inputMsg.querySelector("small").innerText=text;
+}
+// isEmail
+function isEmail(email) {
+return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+//isPhone
+function isPhone(number) {
+  return /([\+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/.test(number);
+}
+// isBirthday
+function isBirthday(birthday){
+  return /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/.test(birthday)
+}
+
 let citis = document.getElementById("city");
 let districts = document.getElementById("district");
 let wards = document.getElementById("ward");
@@ -77,3 +154,9 @@ function renderCity(data) {
     }
   };
 }
+
+
+
+
+
+

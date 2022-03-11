@@ -127,7 +127,6 @@ input:checked + .btn-size {
   box-shadow: unset;
 }
 .sneaker-quantity__value{
-  margin: 0 10px;
   font-size: 1.6rem;
   max-width: 30px;
   width: 100%;
