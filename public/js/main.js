@@ -84,7 +84,7 @@ const getNewShoes = (arr) =>{
       fade: true,
       cssEase: 'linear',
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 3000,
       infinite: true,
       dotsClass: 'slick--slick-dots slick-dots',
       nextArrow: '<button type="button" class="slick--slick-next"><i class="bi bi-chevron-right"></i></button>',

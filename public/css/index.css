@@ -8,13 +8,32 @@
 }
 .banner-title{
   position: absolute;
-  bottom:50%;
+  bottom:60%;
   text-align: center;
   width: 100%;
 }
 .banner-title h1{
   font-size: 10rem;
   font-weight: 400;
+  font-style: italic;
+
+}
+/* animation-direction: alternate; */
+.slider-item.slick-slide.slick-current.slick-active>.banner-title h1{
+  animation-name:rotate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+}
+@keyframes rotate {
+  0%{
+    opacity: 0;
+    transform: translateX(100%)
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0%)
+  }
 }
 .text-left{
   position: absolute;
@@ -28,6 +47,27 @@
   left: 50%;
   top: 30%;
 }
+#shop-now{
+  border: 1px solid var(--black-color);
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%) ;
+  background-color: transparent;
+  opacity: 0.8;
+  padding: 10px;
+  box-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;;
+}
+#shop-now h1{
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+#shop-now:hover{
+  background-color: var(--white-color);
+}
+
 .slider-1{
   background-image: url(../img/original.jpg);
 }

@@ -9,6 +9,9 @@
   .side-filter.btn{
     display: none;
   }
+  .banner-title h1{
+    font-size: 7rem;
+  }
 }
 
 @media only screen and (max-width: 992px){
@@ -44,7 +47,7 @@
 
   /* banner */
   .banner-title h1{
-    font-size: 5rem;
+    font-size: 6rem;
   }
 
 
@@ -104,17 +107,15 @@
   .quick-review{
     display: none;
   }
+  .category-name>a{
+    font-size: 1.8rem;
+  }
   /* sneaker */
   .btn-cart-list{
     padding: 5px;
   }
-  /* banner */
-  .banner-title h1{
-    font-size: 3rem;
-  }
-  .category-name>a{
-    font-size: 1.8rem;
-  }
+
+
   /* footer */
   footer .container{
     text-align: center;
@@ -166,6 +167,13 @@
   }
   .slick--slick-prev{
     left: 10px;
+  }
+  .banner-title h1{
+    font-size: 5rem;
+  }
+  #shop-now h1{
+    font-size: 1.8rem;
+    bottom: 15%;
   }
 }
 
@@ -254,6 +262,16 @@
     font-size: 1.8rem;
   }
   /* index */
+  .banner-title h1{
+    font-size: 3rem;
+  }
+  #shop-now{
+    padding: 4px;
+  }
+  #shop-now h1{
+    font-size: 1.2rem;
+    bottom: 15%;
+  }
   #list-product{
     margin-bottom: 30px;
     margin-top: 25px;
