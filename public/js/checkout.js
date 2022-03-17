@@ -90,6 +90,7 @@ const renderCheckOutItem = (arr) =>{
   arr.forEach(e=>{
     checkOutCart.innerHTML+=`
     <div class="product d-flex justify-content-between align-items-center">
+    
     <label class="product-name">${e.product.name}</label>
     <label class="product-quantity mx-3">x${e.quantity}</label>
     <label class="product-price color--red">${util.formatter.format(e.quantity*e.product.price)}đ</label>

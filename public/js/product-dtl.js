@@ -20,10 +20,9 @@ function getProductDetail(){
       if(res.statusText === "OK"){
         product = res.data;
         console.log(product);
+        pageCurrent(product)
         renderProductDetail(product);
         renderProductDescpt(product)
-
-
         const btnAddCart = document.getElementById("btnAddCart")
         btnAddCart.addEventListener("click",()=>{
           if(kt!=0){
@@ -37,7 +36,6 @@ function getProductDetail(){
                 item.size = kt;
               }else{
                 cart.push({product,quantity:Number(quantity.value),size:kt})
-                // renderToast(product)
               }
               
             }
@@ -55,15 +53,18 @@ function getProductDetail(){
   .catch(error=>console.log(error))
 }
 
-function renderSeperate(){
-  
+
+const  pageCurrent = (obj)=>{
+    // document.title =""
+    document.title = obj.name;
+    const pageCurrent = document.querySelector(" .category-name > a:last-child")
+    pageCurrent.innerText="";
+    pageCurrent.innerHTML=`<span>${obj.name}</span>`;
 }
 
+
 function renderProductDetail(obj){
-  // document.title =""
-  document.title = obj.name;
-  const pageCurrent = document.querySelector(" .category-name > a:last-child")
-  pageCurrent.innerHTML=`<span>${obj.name}</span>`;
+
   obj.imgLg.forEach((e,i) => {
     const sliderForItem = document.createElement("div")
     sliderForItem.classList.add("slider-for__item");
@@ -119,7 +120,6 @@ function renderProductDetail(obj){
       <input id="${e}" type="radio" class="upload" name="size" value=${e} />
       <label class="btn-size" for="${e}">${e}</label>
       `});
-    
     const inputRadio = document.getElementsByName("size");
     // console.log(inputRadio);
     // console.log(btnSize);

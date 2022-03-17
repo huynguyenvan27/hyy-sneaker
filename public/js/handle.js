@@ -3,6 +3,7 @@ let formatter = new Intl.NumberFormat("en-US", {
   currency: "VND",
 });
 let cart =[];
+let list =[];
 const miniCart__inner = document.querySelector(".mini-cart__inner")
 function getProductItemApi(id){
   return axios.get(`/product/${id}`)
@@ -23,10 +24,10 @@ const getAddToCart = async (a)=>{
       let item = cart.find(e => e.product.id== a)
       if(item){
         item.quantity+= 1;
-        renderToast(item.product)
+        renderToast(item.product,'Sản phẩm đã thêm vào giỏ hàng')
       }else{
         cart.push({product,quantity:1,size:42})
-        renderToast(product)
+        renderToast(product,'Sản phẩm đã thêm vào giỏ hàng')
       }
       renderMiniCart(cart)
       localStorage.setItem("cart",JSON.stringify(cart))
@@ -37,7 +38,218 @@ const getAddToCart = async (a)=>{
   }
 }
 
-const renderToast =(arr)=>{
+// quick review
+
+const getQuickReview = async (a)=>{
+  let kt=0;
+  let res = await getProductItemApi(a);
+  let product = res.data;
+  try{
+    const quickReviewBlock = document.createElement("div")
+  quickReviewBlock.classList.add("popup");
+  quickReviewBlock.innerHTML=`
+  <div class="popup-close">
+  <button class="btn" onclick="closePopup()"><i class="bi bi-x-square-fill"></i></button>
+</div>
+<div class="popup-content my-3">
+  <div class="row">
+    <div class="col-7">
+      <div class="slider-for">
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="sneaker-info ms-3">
+        <div class="ranked-vote">
+          <span><i class="bi bi-star-fill"></i></span>
+          <span><i class="bi bi-star-fill"></i></span>
+          <span><i class="bi bi-star-fill"></i></span>
+          <span><i class="bi bi-star-fill"></i></span>
+          <span><i class="bi bi-star-fill"></i></span>
+        </div>
+        <h1 class="sneaker-name">${product.name}</h1>
+        <span class="text-16 sale">
+          
+        </span>
+        <div class="sneaker-price mt-3">
+        </div>
+        <div class="text mt-3">Thương hiệu : ${product.brand.toUpperCase()}</div>
+        <div class="sneaker-size__list d-flex flex-wrap mt-3">
+        </div>
+        <div class="d-flex align-items-center justify-content-between flex-wrap">
+          <div class="sneaker-quantity  mt-5">
+            <button class="btn btn-light btn-down">
+              <i class="bi bi-dash"></i>
+            </button>
+            <input class="sneaker-quantity__value align-middle" type="number" name="quantity" value="1" min="1" max="10">
+            <button class="btn btn-light btn-up">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+          <button class="btn--primary mt-5" id="btnAddCart">
+            <i class="bi bi-bag"></i>
+            Thêm vào giỏ hàng
+          </button>
+        </div>
+        <div class="sneaker-favourite mt-5">
+          <button class="btn btn-light favourite btn-outline-danger">
+            <i class="bi bi-heart"></i>
+            <span class="like">Thêm vào yêu thích</span>
+            <span class="liked">Đã thêm vào yêu thích</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="popup-footer">
+  <div class="mt-3">
+    <span class="text align-middle">Chia sẻ:</span>
+    <a href="" class="icon-link facebook"><i class="fa-brands fa-facebook-f"></i></i></a>
+    <a href="" class="icon-link twitter"><i class="fa-brands fa-twitter"></i></a>
+    <a href="" class="icon-link youtube"><i class="fa-brands fa-youtube"></i></a>
+    <a href="" class="icon-link pinterest"><i class="fa-brands fa-pinterest"></i></a>
+  </div>
+</div>
+
+
+`
+  document.body.appendChild(quickReviewBlock);
+  document.querySelector("#overlay").style.display="block";
+  product.imgLg.forEach((e,i) => {
+    const sliderForItem = document.createElement("div")
+    sliderForItem.classList.add("slider-for__item");
+    sliderForItem.innerHTML+=`<img src="${e}" alt="${product.name}"> </div>`;
+    document.querySelector(".slider-for").appendChild(sliderForItem);
+  });
+  let str="";
+  if(product.discount!=0){
+    document.querySelector(".popup .sale").innerHTML=`Sale : ${product.discount*100} %`;
+    str =`
+    <span class="price-current">${formatter.format(product.price-product.price*product.discount)}đ</span>
+    <span class="price-old">${formatter.format(product.price)}đ</span>`
+  }else{
+    document.querySelector(".popup .sale").style.display="none";
+    str=`
+    <span class="price-current">${formatter.format(product.price)}đ</span>
+    `
+  }
+  document.querySelector(".popup .sneaker-price").innerHTML=str;
+    
+  product.list_size.forEach((e,i) => {
+    document.querySelector(".sneaker-size__list").innerHTML += `
+    <input id="${e}" type="radio" class="upload" name="size" value=${e} />
+    <label class="btn-size" for="${e}">${e}</label>
+    `});
+    const inputRadio = document.getElementsByName("size");
+    Array.from(inputRadio).forEach((e,i)=>{
+      e.addEventListener("click",()=>{
+        if (e.checked === true){
+          kt=e.value;
+          // console.log(kt);
+        }
+      })
+    })
+    const btnDown = document.querySelector(".btn.btn-light.btn-down")
+    const btnUp = document.querySelector(".btn.btn-light.btn-up")
+    let quantity= document.querySelector(".sneaker-quantity__value");
+    let min = Number(quantity.getAttribute('min'));
+    let max = Number(quantity.getAttribute('max'));
+
+    btnDown.addEventListener("click",qtyminus)
+    function qtyminus(e) {
+    var current = Number(quantity.value);
+    var newval = (current - 1);
+    if(newval < min) {
+      newval = min;
+    } else if(newval > max) {
+      newval = max;
+    } 
+    quantity.value = Number(newval);
+    e.preventDefault();
+    }
+    btnUp.addEventListener("click",qtyplus)
+    function qtyplus(e) {
+    var current = Number(quantity.value);
+    var newval = (current + 1);
+    if(newval > max) newval = max;
+    quantity.value = Number(newval);
+    e.preventDefault();
+    }
+
+    const btnAddCart = document.getElementById("btnAddCart")
+    btnAddCart.addEventListener("click",()=>{
+      if(kt!=0){
+        let storage = localStorage.getItem('cart')
+        if(storage){
+          cart = JSON.parse(storage)  
+          let item = cart.find(e =>e.product.id==product.id
+        )
+          if(item){
+            item.quantity+= Number(quantity.value);
+            item.size = kt;
+          }else{
+            cart.push({product,quantity:Number(quantity.value),size:kt})
+          }
+          
+        }
+        renderMiniCart(cart)
+        localStorage.setItem("cart",JSON.stringify(cart))
+        closePopup();
+        cartOpen();
+      }else{
+        alert("Chọn size trước khi nhấn thêm vào giỏ hàng")
+      }
+    })
+    
+  // const inputRadio = document.getElementsByName("size");
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    dotsClass: 'slick-dots-for',
+    nextArrow: '<button type="button" class="slick--slick-next"><i class="bi bi-chevron-right"></i></button>',
+    prevArrow: '<button type="button" class="slick--slick-prev"><i class="bi bi-chevron-left"></i></button>',
+    });
+
+  }
+  catch(e){
+    console.log(e);
+  }
+  
+}
+
+// thêm vào yêu thích
+const getAddToWishlist = async (a)=>{
+
+  let storage = localStorage.getItem('list')
+  // console.log(storage);
+  if(storage){
+    list = JSON.parse(storage)  
+  }
+  let res = await getProductItemApi(a);
+  let product = res.data;
+  try{
+    // const
+    let item = list.find(e => e.id== a)
+    if(item){
+      renderToast(product,'Đã thêm vào yêu thích')
+    }else{
+      list.push(product)
+      renderToast(product,'Đã thêm vào yêu thích')
+    }
+    localStorage.setItem("list",JSON.stringify(list))
+  }
+  catch(error){
+    console.log(error);
+  }
+}
+
+
+
+
+const renderToast =(arr,msg)=>{
   const toastMsg = document.createElement("div")
   toastMsg.classList.add('toast-msg');
   const autoRemoveId = setTimeout(function () {
@@ -58,7 +270,8 @@ const renderToast =(arr)=>{
     <div class="ms-3">
       <h4>${arr.name}</h4>
       <h5 class="toast-info">
-        Sản phẩm đã thêm vào giỏ hàng
+        ${msg}
+        
       </h5>
     </div>
   </div>
@@ -100,7 +313,7 @@ const renderListProduct =(data,path)=>{
  
   return str;
 }
-console.log("Port number is " + window.location.pathname);
+// console.log("Port number is " + window.location.pathname);
 const cartTotal=(data)=>{
   let total =0;
   for(let i=0;i<data.length;i++) {

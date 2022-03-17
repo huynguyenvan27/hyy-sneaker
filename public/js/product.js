@@ -29,8 +29,9 @@ const getProducts = async()=> {
       })
     })
     
-    let brand = []; 
     let newArr=[];
+    let brand = []; 
+
     Array.from(btnFilter).forEach(e=>{
       e.addEventListener("click",()=>{
         if(e.checked == true && brand.includes(e.id)==false){
@@ -38,10 +39,11 @@ const getProducts = async()=> {
           console.log(brand);
           const brandAdd = document.createElement("button")
           brandAdd.innerHTML=`
-        
-          <label for="${e.id}">${e.id}</label>
-        `
-          brandAdd.classList.add("btn-outline-danger","btn","me-1",`remove-${e.id}`)
+          <label for="${e.id}">
+          <i class="bi bi-x-circle"></i>
+          ${e.id}</label>
+        ` 
+          brandAdd.classList.add("btn-outline-danger","btn","me-1","mb-1",`remove-${e.id}`)
           btnAddBlock.appendChild(brandAdd);
           removeAll.style.visibility="visible";
           brand.push(e.id);
@@ -50,28 +52,34 @@ const getProducts = async()=> {
             Array.from(btnFilter).forEach(e=>{
               if(e.checked==true){
                 e.checked=false;
-                brand.pop()
-
-                renderProducts(products)
+                brand.length=0;
+                // console.log(brand);
+                // renderProducts(products)
               }
             })
           }
-          newArr = products.filter(a=>brand.includes(a.brand.toLowerCase()))
-          renderProducts(newArr);
+          // newArr = products.filter(a=>brand.includes(a.brand.toLowerCase()))
+          // renderProducts(newArr);
           if(newArr.length==0){
             document.querySelector(".pagination").style.display="none";
           }
         }else{
           document.querySelector(`.remove-${e.id}`).remove()
-          brand.pop()
+          for(let i=0;i<brand.length;i++){
+            if(brand[i]==e.id){
+              brand.splice(i,1)
+            }
+          }
+        }
+        newArr = products.filter(a=>brand.includes(a.brand.toLowerCase()))
+        if(brand.length>0){
+          renderProducts(newArr)
+        }else{
           renderProducts(products)
-          
         }
       })
 
     })
-
-
   } catch (error) {
       console.log(error);
   }

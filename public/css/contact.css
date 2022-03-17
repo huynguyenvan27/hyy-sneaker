@@ -1,6 +1,4 @@
-.contact-input{
-  margin-bottom: 20px;
-}
+
 .contact-input>input,.contact-input>textarea{
   width: 100%;
   padding: 5px 10px;
@@ -33,16 +31,18 @@ iframe{
   padding: 0 60px;
 }
 input:checked + .btn-option-pay {
-  background-color: var(--primary-color);
+  background-color: var(--black-color);
+  color: var(--white-color);
   transition: .5s;
 }
 .btn-option-pay{
-  border: 2px solid var(--black-color);
-  padding: 15px 0;
+  border: 1px solid var(--black-color);
+  padding: 6px 0;
   background-color: var(--white-color);
   display: block;
   width: 100%;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 .btn-option-pay i{
   font-size: 3rem;

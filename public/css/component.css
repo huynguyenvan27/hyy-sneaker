@@ -26,7 +26,7 @@
 .header-nav a{
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 8px;
+  margin: 0 12px;
   text-transform: uppercase;
 }
 .header-icon>a{
@@ -177,13 +177,13 @@
 #newsletter{
   background-color: #f3f3f3;
   font-size: 1.4rem;
-  padding: 10px 0;
+  padding: 15px 0;
 }
 .newsletter-input{
   position: relative;
 }
 .newsletter-input input{
-  height: 47px;
+  height: 42px;
   padding: 10px;
   flex: 1;
   border: none;
@@ -192,7 +192,7 @@
   outline: unset;
 }
 #newsletter .btn--primary{
-  height: 47px;
+  height: 42px;
   position: absolute;
   right: 8px;
 }
@@ -464,11 +464,63 @@ form small{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  padding: 20px;
-  padding-bottom: 30px;
-  width: 80%; 
-  max-width: 500px;
-  /* animation-name: animatetop; */
-  /* animation-duration: 0.6s; */
+  z-index: 55;
+  padding: 15px;
+  width: 90%; 
+  max-width: 900px;
+  /* display: none; */
+  animation-name: zoom;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
   border: 1px solid var(--grey-color);
+  border-radius: 5px;
+  overflow: auto;
+}
+.popup-footer{
+  border-top: 1px solid var(--border-color);
+}
+.popup-close {
+  border-bottom: 1px solid var(--border-color);
+}
+.popup-close button{
+  font-size: 2rem;
+  font-weight: 800;
+  color: #888;
+}
+.popup .sale{
+  background-color: var(--red-color);
+  display: inline-block;
+  padding: 3px 10px;
+  color: var(--white-color);
+  border-radius: 6px;
+  position: relative;
+}
+.popup .sale::before{
+  position: absolute;
+  right: -26px;
+  top: 0;
+  height: 100%;
+  content: "";
+  display: block;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--red-color);
+}
+.popup .price-current{
+  font-size: 2rem;
+  font-weight: 500;
+}
+.popup .btn-size{
+  width: 45px;
+  height: 35px;
+  line-height: 35px;
+
+}
+@keyframes zoom {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }

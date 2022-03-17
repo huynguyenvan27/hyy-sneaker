@@ -93,3 +93,74 @@ export const collapse = ()=>{
     content.style.maxHeight = content.scrollHeight + "px";
   }
 }
+
+
+export const renderProductDetail = (obj)=>{
+
+  obj.imgLg.forEach((e,i) => {
+    const sliderForItem = document.createElement("div")
+    sliderForItem.classList.add("slider-for__item");
+    sliderForItem.innerHTML+=`<img src="${e}" alt="${obj.name}"> </div>`;
+    document.querySelector(".slider-for").appendChild(sliderForItem);
+  });
+
+  obj.imgDetail.forEach((e,i) => {
+    const sliderNavItem = document.createElement("div")
+    sliderNavItem.classList.add("slider-nav__item");
+    sliderNavItem.innerHTML+=`<img src="${e}" alt="${obj.name}"> </div>`;
+    document.querySelector(".slider-nav").appendChild(sliderNavItem);
+  }); 
+
+  // slick slider
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    asNavFor: '.slider-nav',
+    dotsClass: 'slick-dots-for',
+    nextArrow: '<button type="button" class="slick--slick-next"><i class="bi bi-chevron-right"></i></button>',
+    prevArrow: '<button type="button" class="slick--slick-prev"><i class="bi bi-chevron-left"></i></button>',
+    responsive: [
+      { slidesToShow: 1,
+        slidesToScroll: 1,
+        breakpoint: 768,
+        settings: {
+        arrows: true,
+        dots:true,
+          }
+        },
+        ]
+    });
+    $('.slider-nav').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    arrows: false,
+    asNavFor: '.slider-for',
+    dots: false,
+    focusOnSelect: true,
+    centerMode: true,
+    infinite: true,
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+    });
+
+    // sneaker-info
+    document.querySelector(".sneaker-name").innerText = obj.name;
+    document.querySelector(".sneaker-price").innerHTML = util.renderPrice(obj);
+    obj.list_size.forEach((e,i) => {
+      document.querySelector(".sneaker-size__list").innerHTML += `
+      <input id="${e}" type="radio" class="upload" name="size" value=${e} />
+      <label class="btn-size" for="${e}">${e}</label>
+      `});
+    const inputRadio = document.getElementsByName("size");
+    // console.log(inputRadio);
+    // console.log(btnSize);
+    Array.from(inputRadio).forEach((e,i)=>{
+      e.addEventListener("click",()=>{
+        if (e.checked === true){
+          kt=e.value;
+          console.log(kt);
+        }
+      })
+    })
+}

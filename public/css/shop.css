@@ -118,7 +118,7 @@ input:checked + .btn-size {
 /* sneaker-quantiy */
 .sneaker-quantity{
   border: 1px solid #ccc;
-  display: inline-block;
+  display: inline-flex;
 }
 .sneaker-quantity i{
   font-size: 2rem;

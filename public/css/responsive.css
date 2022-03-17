@@ -23,6 +23,9 @@
   .heading-1{
     margin-bottom: 10px;
   }
+  .heading-1.line-seperate{
+    margin-bottom: 20px;
+  }
 /* header */
 
   .header-nav{
@@ -93,9 +96,7 @@
     display: block;
   }
   /* contact */
-  .contact-input{
-    margin-bottom: 10px;
-  }
+
   .content-page .col{
     padding: 0;
   }
@@ -317,9 +318,14 @@
   }
   /* checkout */
   .btn-option-pay{
-    padding: 8px 0;
+    padding: 2px 0;
   }
-
+  .contact-input label {
+    font-size: 1.4rem;
+  }
+  .contact-input select{
+    font-size: 1.4rem;
+  }
 }
 
 

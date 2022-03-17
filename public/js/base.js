@@ -9,6 +9,7 @@ const closeNav = () =>{
   navMobile.style.marginLeft = "-350px";
   overLay.style.display = "none";
   miniCart.style.marginRight = "-350px";
+  document.body.removeChild(document.querySelector(".popup"));
 }
 const openNav = () =>{
   navMobile.style.marginLeft = "0px";
@@ -81,7 +82,10 @@ function sendMail(){
 }
 
 
-
+const closePopup =()=>{
+  document.body.removeChild(document.querySelector(".popup"));
+  overLay.style.display = "none";
+}
 
 // toogle btn filter
 
@@ -96,5 +100,6 @@ btnCollapse.addEventListener("click",function(){
   }
 
 })
+
 
 
