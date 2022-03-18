@@ -83,6 +83,10 @@
 }
 .filter-product .btn{
   font-size: 1.6rem;
+
+}
+.btn-outline-danger.btn.me-1.mb-1{
+  cursor: pointer;
 }
 #removeAll{
   visibility: hidden;

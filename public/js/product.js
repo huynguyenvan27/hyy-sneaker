@@ -54,7 +54,7 @@ const getProducts = async()=> {
                 e.checked=false;
                 brand.length=0;
                 // console.log(brand);
-                // renderProducts(products)
+                renderProducts(products)
               }
             })
           }
